@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -14,9 +15,9 @@ import java.util.List;
 @Data
 public class Team extends BaseBean{
 
-	private Long id;
 	@Column(unique = true)
 	private String identifier;
+	@NotNull
 	private String name;
 	@OneToMany(fetch = FetchType.LAZY)
 	private List<Task> tasks;
